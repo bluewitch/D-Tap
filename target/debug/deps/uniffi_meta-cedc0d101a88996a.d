@@ -1,0 +1,11 @@
+/home/openclaw/projects/dtap/target/debug/deps/uniffi_meta-cedc0d101a88996a.d: /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/lib.rs /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/ffi_names.rs /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/group.rs /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/reader.rs /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/metadata.rs
+
+/home/openclaw/projects/dtap/target/debug/deps/libuniffi_meta-cedc0d101a88996a.rlib: /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/lib.rs /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/ffi_names.rs /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/group.rs /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/reader.rs /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/metadata.rs
+
+/home/openclaw/projects/dtap/target/debug/deps/libuniffi_meta-cedc0d101a88996a.rmeta: /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/lib.rs /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/ffi_names.rs /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/group.rs /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/reader.rs /home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/metadata.rs
+
+/home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/lib.rs:
+/home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/ffi_names.rs:
+/home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/group.rs:
+/home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/reader.rs:
+/home/openclaw/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/uniffi_meta-0.24.3/src/metadata.rs:

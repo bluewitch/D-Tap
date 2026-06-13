@@ -1,0 +1,1 @@
+cargo:rustc-env=MIME_TYPES_GENERATED_PATH=/home/openclaw/projects/dtap/target/debug/build/mime_guess-b1cc9e9603e2535c/out/mime_types_generated.rs

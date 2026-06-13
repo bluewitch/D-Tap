@@ -1,0 +1,29 @@
+// Uniffi Interface Definition for DTaP Core JIT Bridge
+// This file defines the interface that will be exposed to Kotlin via UniFFI.
+// Run `uniffi-bindgen generate src/uniffi.udl --language kotlin --out-dir ./generated` to generate the Kotlin bindings.
+// The Rust bindings will be generated in the same directory (or you can specify --language rust).
+
+namespace com.example.dtap;
+
+/// Interface for the JIT bridge functionality.
+interface JitBridge {
+    /// Creates a new JitBridge instance.
+    /// @param provider_url Base URL of the voucher provider API.
+    /// * @param auth_token Bearer token for authenticating with the provider.
+    static JitBridge new(String provider_url, String auth_token);
+
+    /// Execute the JIT proxy bridge swap in a blocking manner.
+    /// This method will block the current thread until the asynchronous operation completes.
+    /// @param tx_hash The transaction hash of the user's asset lock on-chain.
+    /// @param merchant_id Merchant identifier for the voucher provider.
+    /// @param amount_fiat Amount in fiat currency (e.g., USD).
+    /// @param currency Currency code (e.g., USD, EUR).
+    /// @return Result<String, String> On success, returns the voucher payload (e.g., barcode serial/PIN).
+    ///         On failure, returns an error message string.
+    Result<String, String> execute_jit_swap_blocking(
+        String tx_hash,
+        String merchant_id,
+        Double amount_fiat,
+        String currency
+    );
+}
