@@ -26,7 +26,7 @@ flowchart TD
         G --> HL[HyperLiquid API]
         G --> PM[Polymarket API]
         K --> GC[Gift Card Contract ERC1155 ERC721]
-        J --> FA[Fresh Address] %% reference to same node as J? maybe keep for clarity
+        J --> FA[Fresh Address]
     end
 
     %% Alloy Wallet
