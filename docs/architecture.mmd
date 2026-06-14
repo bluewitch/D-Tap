@@ -1,11 +1,11 @@
 flowchart TD
-    %% Pos Device
+    %% Point of Sale
     subgraph POS[Point of Sale]
         A[QR/NFC Scanner] -->|Payment Request| B[D-Tap API Endpoint]
     end
 
     %% D-Tap Service
-    subgraph Service[D-Tap Service (Actix-web)]
+    subgraph SVC ["D-Tap Service"]
         B --> C[Validate Request]
         C --> D[Fetch Quote (DEX Aggregator)]
         D --> E[Build Swap Tx (Alloy)]
@@ -19,7 +19,7 @@ flowchart TD
     end
 
     %% External Services
-    subgraph External[External Services]
+    subgraph EXT [External Services]
         D -->|Quote| Dex[DEX Aggregator (1inch, Paraswap)]
         G -->|HyperLiquid API| HL[HyperLiquid REST/WS]
         G -->|Polymarket API| PM[Polymarket REST]
@@ -28,17 +28,17 @@ flowchart TD
     end
 
     %% Alloy Wallet
-    subgraph Wallet[Alloy Wallet (Signer)]
-        F -->|Sign| Wallet
-        Wallet -->|Private Key| Key[Secure Key Store (Env/HSM)]
+    subgraph WLT [Alloy Wallet]
+        F -->|Sign| WLT
+        WLT -->|Private Key| Key[Secure Key Store (Env/HSM)]
     end
 
     %% Styling
     classDef pos fill:#f9f,stroke:#333,stroke-width:2px;
-    classDef service fill:#bbf,stroke:#333,stroke-width:2px;
-    classDef external fill:#bfb,stroke:#333,stroke-width:2px;
-    classDef wallet fill:#ff9,stroke:#333,stroke-width:2px;
+    classDef svc fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef ext fill:#bfb,stroke:#333,stroke-width:2px;
+    classDef wlt fill:#ff9,stroke:#333,stroke-width:2px;
     class POS pos;
-    class Service service;
-    class External external;
-    class Wallet wallet;
+    class SVC svc;
+    class EXT ext;
+    class WLT wlt;
