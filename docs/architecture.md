@@ -8,30 +8,30 @@ flowchart TD
     %% D-Tap Service
     subgraph SVC ["D-Tap Service"]
         B --> C[Validate Request]
-        C --> D|Fetch Quote DEX Aggregator| E[DEX Aggregator]
-        E --> F[Get Quote]
-        F --> G[Build Swap Tx Alloy]
-        G --> H[Sign Tx Alloy Wallet]
-        H --> I[Send Tx to Blockchain]
-        I --> J[Wait Confirmation]
-        J --> K[Swap Output -> Fresh Address Clean Coins]
-        K --> L[Transfer to Gift Card Contract]
-        L --> M[Mint/Transfer Gift Card to User]
-        M --> N[Return Receipt Gift Card QR]
+        C -->|Fetch Quote DEX Aggregator| D[DEX Aggregator]
+        D --> E[Get Quote]
+        E -->|Build Swap Tx Alloy| F[Build Swap Tx]
+        F -->|Sign Tx Alloy Wallet| G[Sign Tx]
+        G --> H[Send Tx to Blockchain]
+        H --> I[Wait Confirmation]
+        I -->|Swap Output -> Fresh Address Clean Coins| J[Fresh Address]
+        J --> K[Transfer to Gift Card Contract]
+        K --> L[Mint/Transfer Gift Card to User]
+        L --> M[Return Receipt Gift Card QR]
     end
 
     %% External Services
     subgraph EXT [External Services]
-        E --> Dex[DEX Aggregator 1inch Paraswap]
+        D --> Dex[DEX Aggregator 1inch Paraswap]
         G --> HL[HyperLiquid API]
         G --> PM[Polymarket API]
-        L --> GC[Gift Card Contract ERC1155 ERC721]
-        K --> FA[Fresh Address]
+        K --> GC[Gift Card Contract ERC1155 ERC721]
+        J --> FA[Fresh Address] %% reference to same node as J? maybe keep for clarity
     end
 
     %% Alloy Wallet
     subgraph WLT [Alloy Wallet]
-        H -->|Sign| WLT
+        F -->|Sign| WLT
         WLT --> Key[Secure Key Store Env/HSM]
     end
 
