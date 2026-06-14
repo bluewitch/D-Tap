@@ -8,30 +8,31 @@ flowchart TD
     %% D-Tap Service
     subgraph SVC ["D-Tap Service"]
         B --> C[Validate Request]
-        C --> D[Fetch Quote (DEX Aggregator)]
-        D --> E[Build Swap Tx (Alloy)]
-        E --> F[Sign Tx (Alloy Wallet)]
-        F --> G[Send Tx to Blockchain]
-        G --> H[Wait Confirmation]
-        H --> I[Swap Output -> Fresh Address]
-        I --> J[Transfer to Gift Card Contract]
-        J --> K[Mint/Transfer Gift Card to User]
-        K --> L[Return Receipt + Gift Card QR]
+        C --> D|Fetch Quote [DEX Aggregator]| E[DEX Aggregator]
+        E --> F[Get Quote]
+        F --> G[Build Swap Tx [Alloy]]
+        G --> H[Sign Tx [Alloy Wallet]]
+        H --> I[Send Tx to Blockchain]
+        I --> J[Wait Confirmation]
+        J --> K[Swap Output -> Fresh Address [Clean Coins]]
+        K --> L[Transfer to Gift Card Contract]
+        L --> M[Mint/Transfer Gift Card to User]
+        M --> N[Return Receipt + Gift Card QR]
     end
 
     %% External Services
     subgraph EXT [External Services]
-        D -->|Quote| Dex[DEX Aggregator (1inch, Paraswap)]
-        G -->|HyperLiquid API| HL[HyperLiquid REST/WS]
-        G -->|Polymarket API| PM[Polymarket REST]
-        J -->|Gift Card Contract| GC[ERC-1155/ERC-721 Gift Card]
-        I -->|Fresh Address| FA[Newly Generated Address (Clean Coins)]
+        E --> Dex[DEX Aggregator [1inch, Paraswap]]
+        G --> HL[HyperLiquid API]
+        G --> PM[Polymarket API]
+        L --> GC[Gift Card Contract [ERC-1155/ERC-721]]
+        K --> FA[Fresh Address]
     end
 
     %% Alloy Wallet
     subgraph WLT [Alloy Wallet]
-        F -->|Sign| WLT
-        WLT -->|Private Key| Key[Secure Key Store (Env/HSM)]
+        H -->|Sign| WLT
+        WLT --> Key[Secure Key Store (Env/HSM)]
     end
 
     %% Styling
