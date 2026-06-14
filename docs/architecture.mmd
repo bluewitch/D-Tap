@@ -1,0 +1,44 @@
+flowchart TD
+    %% Pos Device
+    subgraph POS[Point of Sale]
+        A[QR/NFC Scanner] -->|Payment Request| B[D-Tap API Endpoint]
+    end
+
+    %% D-Tap Service
+    subgraph Service[D-Tap Service (Actix-web)]
+        B --> C[Validate Request]
+        C --> D[Fetch Quote (DEX Aggregator)]
+        D --> E[Build Swap Tx (Alloy)]
+        E --> F[Sign Tx (Alloy Wallet)]
+        F --> G[Send Tx to Blockchain]
+        G --> H[Wait Confirmation]
+        H --> I[Swap Output -> Fresh Address]
+        I --> J[Transfer to Gift Card Contract]
+        J --> K[Mint/Transfer Gift Card to User]
+        K --> L[Return Receipt + Gift Card QR]
+    end
+
+    %% External Services
+    subgraph External[External Services]
+        D -->|Quote| Dex[DEX Aggregator (1inch, Paraswap)]
+        G -->|HyperLiquid API| HL[HyperLiquid REST/WS]
+        G -->|Polymarket API| PM[Polymarket REST]
+        J -->|Gift Card Contract| GC[ERC-1155/ERC-721 Gift Card]
+        I -->|Fresh Address| FA[Newly Generated Address (Clean Coins)]
+    end
+
+    %% Alloy Wallet
+    subgraph Wallet[Alloy Wallet (Signer)]
+        F -->|Sign| Wallet
+        Wallet -->|Private Key| Key[Secure Key Store (Env/HSM)]
+    end
+
+    %% Styling
+    classDef pos fill:#f9f,stroke:#333,stroke-width:2px;
+    classDef service fill:#bbf,stroke:#333,stroke-width:2px;
+    classDef external fill:#bfb,stroke:#333,stroke-width:2px;
+    classDef wallet fill:#ff9,stroke:#333,stroke-width:2px;
+    class POS pos;
+    class Service service;
+    class External external;
+    class Wallet wallet;
