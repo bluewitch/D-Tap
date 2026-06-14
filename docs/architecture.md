@@ -30,9 +30,9 @@ flowchart TD
     end
 
     %% Alloy Wallet
-    subgraph WLT [Alloy Wallet]
+    subgraph WALL [Alloy Wallet]
+        WLT[Signer] -->|Sign| Key[Secure Key Store Env/HSM]
         F -->|Sign| WLT
-        WLT --> Key[Secure Key Store Env/HSM]
     end
 
     %% Styling
@@ -43,5 +43,5 @@ flowchart TD
     class POS pos;
     class SVC svc;
     class EXT ext;
-    class WLT wlt;
+    class WALL wlt;
 ```
